@@ -11,8 +11,8 @@ pipeline {
                     'checkout_application': {
                         echo 'git checkout application'
                     }
-                }
-            )
+                )
+            }
         }
         stage('Build') {
             steps {
