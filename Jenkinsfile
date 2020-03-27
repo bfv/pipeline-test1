@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Setup') {
             steps {
-                paralell(
+                parallel(
                     'checkout_framework': {
                         echo 'git checkout bfvlib'    
                     },
