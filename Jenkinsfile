@@ -3,7 +3,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Setup') {
+        stage('checkout repos') {
             steps {
                 parallel(
                     'checkout_framework': {
@@ -21,17 +21,20 @@ pipeline {
                 )
             }
         }
-        stage('Build') {
+        stage('build dbs') {
+
+        }
+        stage('compile') {
             steps {
                 echo 'Building..'
             }
         }
-        stage('Test') {
+        stage('test') {
             steps {
                 echo 'Testing..'
             }
         }
-        stage('Deploy') {
+        stage('deploy') {
             steps {
                 echo 'Deploying....'
             }
