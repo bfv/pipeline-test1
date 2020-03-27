@@ -9,9 +9,7 @@ pipeline {
                     'checkout_framework': {
                         echo 'git checkout bfvlib'
                         dir('src/bfvlib') {
-                            git url: 'https://github.com/bfv/bfvlib.git'
-                                branch: 'master'
-                                 
+                            git url: 'https://github.com/bfv/bfvlib.git'              
                         }
                     },
                     'checkout_application': {
