@@ -22,7 +22,9 @@ pipeline {
             }
         }
         stage('build dbs') {
-
+            steps {
+                echo 'build databases'
+            }
         }
         stage('compile') {
             steps {
