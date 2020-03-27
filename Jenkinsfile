@@ -1,4 +1,5 @@
 pipeline {
+
     agent any
 
     stages {
@@ -6,7 +7,11 @@ pipeline {
             steps {
                 parallel(
                     'checkout_framework': {
-                        echo 'git checkout bfvlib'    
+                        echo 'git checkout bfvlib'
+                        dir('src/bfvlib') {
+                            git branch: 'master'
+                                url: 'https://github.com/bfv/bfvlib.git' 
+                        }
                     },
                     'checkout_application': {
                         echo 'git checkout application'
