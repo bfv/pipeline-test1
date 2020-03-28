@@ -6,14 +6,12 @@ pipeline {
         stage('checkout repos') {
             steps {
                 parallel(
-                    'checkout_framework': {
-                        echo 'git checkout bfvlib'
+                    'framework': {
                         dir('src/bfvlib') {
                             git url: 'https://github.com/bfv/bfvlib.git'              
                         }
                     },
-                    'checkout_application': {
-                        echo 'git checkout application'
+                    'application': {
                         dir('src/app1') {
                             git url: 'https://github.com/bfv/app1.git'              
                         }
@@ -23,7 +21,18 @@ pipeline {
         }
         stage('build dbs') {
             steps {
-                echo 'build databases'
+                parallel(
+                    'framework': {
+                        dir('dbs/framework') {
+
+                        }
+                    },
+                    'application': {
+                        dir('dbs/application') {
+                            
+                        }
+                    }
+                )
             }
         }
         stage('compile') {
