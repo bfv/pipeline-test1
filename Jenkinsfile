@@ -24,7 +24,7 @@ pipeline {
                 parallel(
                     'framework': {
                         dir('dbs/framework') {
-                            bat "ant createdb -file ../../src/bfvlib/build.xml -DDLC=c:/dlc/117 -Dsrcdir=../../src/bfvlib -Ddbdir=."
+                            ant createdb -file ../../src/bfvlib/build.xml -DDLC=c:/dlc/117 -Dsrcdir=../../src/bfvlib -Ddbdir=.
                         }
                     },
                     'application': {
