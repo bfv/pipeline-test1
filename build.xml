@@ -1,0 +1,7 @@
+<project name="build" default="build" basedir=".">
+
+  <target name="build">
+  	<echo message="hello world!" />
+  </target>
+
+</project>
