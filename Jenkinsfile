@@ -25,11 +25,12 @@ pipeline {
                     'framework': {
                         dir('dbs/framework') {
                             // sh "ant createdb -file ../../src/bfvlib/build.xml -DDLC=c:/dlc/117 -Dsrcdir=../../src/bfvlib -Ddbdir=."
+                            echo 'build framework'
                         }
                     },
                     'application': {
                         dir('dbs/application') {
-
+                            echo 'build application'
                         }
                     }
                 )
@@ -37,7 +38,8 @@ pipeline {
         }
         stage('compile') {
             steps {
-                echo 'Building..'
+                echo 'test Ant call'
+                ant -f build.xml
             }
         }
         stage('test') {
