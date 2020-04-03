@@ -39,7 +39,7 @@ pipeline {
         stage('compile') {
             steps {
                 echo 'test Ant call'
-                ant -f build.xml
+                // ant -f build.xml
             }
         }
         stage('test') {
