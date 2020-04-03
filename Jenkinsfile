@@ -41,6 +41,11 @@ pipeline {
                 echo 'test Ant call'
                 bat "ant -f src/bfvlib/build.xml -DDLC=c:/dlc/117"
             }
+            post {
+                success {
+                    archiveArtifacts artifacts: 'src/build/bfvlib.pl', fingerprint: true
+                }
+            }
         }
         stage('test') {
             steps {
