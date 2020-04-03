@@ -39,7 +39,7 @@ pipeline {
         stage('compile') {
             steps {
                 echo 'test Ant call'
-                // ant -f build.xml
+                bat "ant -f src/framework/build.xml -DDLC=c:/dlc/117"
             }
         }
         stage('test') {
