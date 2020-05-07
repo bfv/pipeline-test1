@@ -1,7 +1,10 @@
 pipeline {
 
     agent { label 'win' }
-
+    
+    def buidDir = "../../build"
+    def sourceDir = "../../src"
+    
     stages {
         stage('checkout repos') {
             steps {
@@ -24,7 +27,7 @@ pipeline {
                 parallel(
                     'framework': {
                         dir('dbs/framework') {
-                            bat "ant createdb -file ../../src/bfvlib/build.xml -DDLC=c:/dlc/117 -Dsrcdir=../../src/bfvlib -Ddbdir=../../dbs/framework  -Dbuilddir=../../build"
+                            bat "ant createdb -file ${sourceDir}/bfvlib/build.xml -DDLC=c:/dlc/117 -Dsrcdir=${sourceDir}/bfvlib -Dbuilddir=${buildDir}"
                             echo 'build framework'
                         }
                     },
@@ -39,8 +42,8 @@ pipeline {
         stage('compile') {
             steps {
                 echo 'test Ant call'
-                bat "ant compile -f src/bfvlib/build.xml -DDLC=c:/dlc/117 -Dbuilddir=../../build  -Ddbdir=../../dbs/framework"
-                bat "ant package -f src/bfvlib/build.xml -DDLC=c:/dlc/117 -Dbuilddir=../../build"
+                bat "ant compile -f src/bfvlib/build.xml -DDLC=c:/dlc/117 -Dbuilddir=${buildDir}"
+                bat "ant package -f src/bfvlib/build.xml -DDLC=c:/dlc/117 -Dbuilddir=${buildDir}"
             }
             post {
                 success {
