@@ -1,5 +1,5 @@
 def sourceDir = "../../src"
-def buidDir = "../../build"
+def buildDir = "../../build"
     
 pipeline {
 
