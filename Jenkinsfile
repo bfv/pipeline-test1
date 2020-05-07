@@ -1,9 +1,9 @@
+def sourceDir = "../../src"
+def buidDir = "../../build"
+    
 pipeline {
 
     agent { label 'win' }
-    
-    def buidDir = "../../build"
-    def sourceDir = "../../src"
     
     stages {
         stage('checkout repos') {
