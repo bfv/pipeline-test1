@@ -39,7 +39,7 @@ pipeline {
         stage('compile') {
             steps {
                 echo 'test Ant call'
-                bat "ant compile -f src/bfvlib/build.xml -DDLC=c:/dlc/117 -Dbuilddir=../../build"
+                bat "ant compile -f src/bfvlib/build.xml -DDLC=c:/dlc/117 -Dbuilddir=../../build  -Ddbdir=../../dbs/framework"
                 bat "ant package -f src/bfvlib/build.xml -DDLC=c:/dlc/117 -Dbuilddir=../../build"
             }
             post {
