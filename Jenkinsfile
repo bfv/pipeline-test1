@@ -5,7 +5,7 @@ pipeline {
 
     agent { label 'win' }
     
-    triggers { cron('H/30 14 * * *') }
+    triggers { cron('H/35 12 * * *') }
     
     stages {
         stage('checkout repos') {
