@@ -5,6 +5,8 @@ pipeline {
 
     agent { label 'win' }
     
+    triggers { cron('H/30 14 * * *') }
+    
     stages {
         stage('checkout repos') {
             steps {
