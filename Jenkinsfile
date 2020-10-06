@@ -47,7 +47,7 @@ pipeline {
             }
             post {
                 success {
-                    archiveArtifacts artifacts: 'src/build/bfvlib.pl', fingerprint: true
+                    archiveArtifacts artifacts: 'build/bfvlib.pl', fingerprint: true
                 }
             }
         }
